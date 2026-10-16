@@ -4,6 +4,7 @@ import ci_course
 
 from pathlib import Path
 
+
 def test_loads_every_column_of_the_sample_data():
     data = ci_course.load_measurements()
 
@@ -28,14 +29,14 @@ def test_reads_a_file_given_by_path(tmp_path):
     assert list(data) == ["height_m"]
     assert data["height_m"].tolist() == [1.5, 2.5]
 
+
 def test_load_measurementws_exceptions():
     # need to pass it a csv where raw is a string
     errors = []
-    
+
     path = Path(__file__).parent / "data" / "exception_sample_measurements.csv"
     path = Path(str(path).replace("tests", "src/ci_course"))
-    
-    data = ci_course.load_measurements(path, errors)
-    
+
+    ci_course.load_measurements(path, errors)
+
     assert len(errors) == 1
-    
