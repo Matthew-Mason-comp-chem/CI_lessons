@@ -37,7 +37,6 @@ def summarise(values):
         "max": float(np.max(present)),
     }
 
-
 def count_missing(values):
     """
     Count the missing values in a column of measurements.
@@ -52,10 +51,8 @@ def count_missing(values):
     int
         The number of missing values.
     """
-
     values = np.asarray(values, dtype=float)
     return int(np.isnan(values).sum())
-
 
 def summarise_all(measurements):
     """
