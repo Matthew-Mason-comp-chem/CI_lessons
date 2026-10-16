@@ -18,18 +18,18 @@ def test_missing_values_are_ignored():
     assert summary["n"] == 2
     assert summary["mean"] == 2.0
 
+
 def test_edge_cases():
     x = np.array([np.nan, np.nan, np.nan])
     summary = ci_course.summarise(x)
 
     assert summary == {"n": 0, "mean": 0.0, "sd": 0.0, "min": 0.0, "max": 0.0}
-    
+
     x = np.array([1.0, np.nan, np.nan])
     summary = ci_course.summarise(x)
 
     assert summary["sd"] == 0
-     
-    
+
 
 def test_summarises_every_column():
     summaries = ci_course.summarise_all(ci_course.load_measurements())
