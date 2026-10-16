@@ -40,6 +40,7 @@ ci_course = ["data/*.csv"]
 [tool.ruff.lint]
 select = ["E", "F", "W", "B"]
 
+
 # The docstring rules are deliberately not selected here. The Docstrings
 # workflow runs them separately, with "ruff check --select D src/", so that
 # documentation is a stage of its own rather than more lint noise. The
@@ -53,3 +54,4 @@ testpaths = ["tests"]
 
 [tool.coverage.run]
 source = ["ci_course"]
+branch = true
